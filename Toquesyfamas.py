@@ -6,20 +6,26 @@ print(num_adivina)
 #num_1 = num_adivina //100
 #print(num_adivina[0]
 intentos = 0
-while  intentos < 5:  
+famas = 0
+while  intentos < 6:
+     if famas == 4:
+          print("ganaste")
      print("ingresa un numero de 4 digitos distintos")
      Num_user = int(input())
+     numeros_escritos=[]
      intentos +=1
-     print(Num_user)
      Num1 = Num_user //1000
      Num2 = (Num_user - Num1*1000) //100
      Num3 = (Num_user - Num1*1000-Num2*100) //10
      Num4 = (Num_user - Num1*1000-Num2*100-Num3*10) 
-     if Num1 == Num2 or Num1 == Num3 or Num1 == Num4 or Num2 == Num3 or Num2 == Num4 or Num3 == Num4:
-        print("Debe ingresar un numero sin digitos repetidos")
-     else:
-           
-else:
-   print("perdiste")
+     numeros_escritos.extend([Num1, Num2, Num3, Num4])
+     i = 0
+     for num_escrito in numeros_escritos:
+            if num_escrito == num_adivina[i]:
+               print("tienes una fama en", num_escrito)   
+               i += 1  
+               famas += 1  
+                
+print("perdiste")
 
 
